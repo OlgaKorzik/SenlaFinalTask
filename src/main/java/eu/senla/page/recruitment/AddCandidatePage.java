@@ -10,16 +10,17 @@ public class AddCandidatePage {
     SelenideElement firstName = $(By.id("addCandidate_firstName"));
     SelenideElement middleName = $(By.id("addCandidate_middleName"));
     SelenideElement lastName = $(By.id("addCandidate_lastName"));
-    SelenideElement email = $(By.id("addCandidate_lastName"));
+    SelenideElement email = $(By.id("addCandidate_email"));
     SelenideElement contact = $(By.id("addCandidate_contactNo"));
     SelenideElement jobVacancy = $(By.id("addCandidate_vacancy"));
-    SelenideElement valueJobVacancy =$(By.id("//option[contains(text(),'Software Engineer')]"));
+    SelenideElement valueJobVacancy =$(By.xpath("//option[contains(text(),'Software Engineer')]"));
     SelenideElement resume = $(By.id("addCandidate_resume"));
     SelenideElement keyWords = $(By.id("addCandidate_keyWords"));
     SelenideElement comment =$(By.id("addCandidate_comment"));
     SelenideElement appliedDate = $(By.id("addCandidate_appliedDate"));
     SelenideElement consentToKeepData = $(By.id("addCandidate_consentToKeepData"));
     SelenideElement buttonSave = $(By.id("btnSave"));
+    SelenideElement buttonBack = $(By.id("btnBack"));
 
     @Step("Set value for new candidate")
     public void setValueForCandidate(){
@@ -33,11 +34,15 @@ public class AddCandidatePage {
         resume.sendKeys(System.getProperty("user.dir")+LINK_RESUME);
         keyWords.setValue(KEY_WORD);
         comment.setValue(COMMENT);
-        appliedDate.setValue(DATA);
+        appliedDate.setValue(DATE);
         consentToKeepData.click();
     }
     @Step("Click save button")
     public void clickSave(){
         buttonSave.click();
+    }
+    @Step("Click back button")
+    public void clickBack(){
+        buttonBack.click();
     }
 }

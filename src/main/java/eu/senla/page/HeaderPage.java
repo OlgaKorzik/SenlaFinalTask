@@ -21,7 +21,7 @@ public class HeaderPage {
 
 
     public SelenideElement menuRecruitment = $(By.id("menu_recruitment_viewRecruitmentModule"));
-    public SelenideElement RecruitmentCandidates =$(By.id("menu_recruitment_viewCandidates"));
+    public SelenideElement recruitmentCandidates =$(By.id("menu_recruitment_viewCandidates"));
 
     public SelenideElement menuLeave = $(By.id("menu_leave_viewLeaveModule"));
     public SelenideElement menuLeaveAssign = $(By.id("menu_leave_assignLeave"));
