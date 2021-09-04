@@ -2,6 +2,9 @@ package eu.senla.util;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public final class IConstants {
     //data for login page
@@ -15,11 +18,11 @@ public final class IConstants {
     //data for page add new user
     public static String EMPLOYEE_NAME = "Melan Peiris";
     public static String NONEXISTENT_EMPLOYEE_NAME = "Georgia Green";
-    public static String USERNAME = "Angelinas";
+    public static String USERNAME = "Angelinas.Peiris";
     public static String USER_PASSWORD ="Ang12345";
 
     //data for page add new job
-    public static String JOB_TITLE = "AQA engineer";
+    public static String JOB_TITLE = "AQA testJob";
     public static String DESCRIPTION = "software testing";
     public static String LINK_SPECIFICATION="\\src\\main\\resources\\img\\maxresdefault.jpg";
     public static String NOTE = "Same text";
@@ -36,8 +39,20 @@ public final class IConstants {
     public static String DATE = "2021-08-29";
 
     //data for add assign leave page
-    //LocalDate date = LocalDate.now();
     public static String FROM_DATA = String.valueOf(LocalDate.now());
     public static String TO_DATA = String.valueOf(LocalDate.of(2021, 9,30));
+
+    //data for dashboard page
+    public static List<String> DATA_TABLE = Arrays.asList("Assign Leave",
+            "Leave List","Timesheets",
+            "Apply Leave","My Leave","My Timesheet");
+    public static List<String> TABLE_LEGEND = Arrays.asList("Not assigned to Subunits",
+            "Administration","Client Services", "Engineering","Finance",
+            "Human Resources","Sales & Marketing");
+    public static List<String>TABLE_PAGE = Arrays.asList("Employee Distribution by Subunit",
+            "Legend","Pending Leave Requests");
+    //data for Employee List page
+    public static String FIRST_NAME_PIM ="Nina";
+    public static String LAST_NAME_PIM ="Patel";
 
 }

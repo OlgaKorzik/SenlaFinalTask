@@ -1,6 +1,6 @@
 package eu.senla.util;
 
-import com.codeborne.selenide.Configuration;
+
 import com.codeborne.selenide.SelenideElement;
 import eu.senla.page.HeaderPage;
 import eu.senla.page.LoginPage;
@@ -9,10 +9,14 @@ import eu.senla.page.admin.AddUserPage;
 import eu.senla.page.admin.AdminUsersPage;
 import eu.senla.page.admin.JobTitlesPage;
 import eu.senla.page.leave.LeaveAssignPage;
+import eu.senla.page.leave.LeaveListPage;
+import eu.senla.page.pim.EmpLoyeeListPage;
+import eu.senla.page.pim.NinaPatelDetailsPage;
 import eu.senla.page.recruitment.AddCandidatePage;
 import eu.senla.page.recruitment.CandidatesPage;
 import io.qameta.allure.Step;
 
+import static com.codeborne.selenide.Condition.*;
 import static eu.senla.util.IConstants.*;
 
 
@@ -26,6 +30,9 @@ public class PageMethods {
     CandidatesPage candidatesPage = new CandidatesPage();
     AddCandidatePage addCandidatePage = new AddCandidatePage();
     LeaveAssignPage leaveAssignPage = new LeaveAssignPage();
+    LeaveListPage leaveListPage = new LeaveListPage();
+    EmpLoyeeListPage empLoyeeListPage = new EmpLoyeeListPage();
+    NinaPatelDetailsPage nina = new NinaPatelDetailsPage();
 
     @Step("login account administrator")
     public void loginAdmin (){
@@ -155,10 +162,49 @@ public class PageMethods {
          leaveAssignPage.confirmationAssignLeave();
      }
     }
-    @Step("Check to negative balance")
-    public boolean negativeBalance(){
 
-        return leaveAssignPage.negativeBalance();
+    @Step("Find assign leave")
+    public SelenideElement findAssignLeaveFromTable(String str){
+        headerPage.menuLeaveList.click();
+        leaveListPage.clickButton();
+        return leaveListPage.findElement(str);
     }
-
+    @Step("Open Employee List page and selection of employees")
+    public void openEmployeeList(){
+        headerPage.menuPIM.click();
+        headerPage.employeeList.click();
+        empLoyeeListPage.clickSubUnit();
+        empLoyeeListPage.clickValueSubUnit();
+        empLoyeeListPage.clickSearchButton();
+    }
+    @Step("Find employee on the table")
+    public void findEmployee(){
+        openEmployeeList();
+        SelenideElement element = empLoyeeListPage.findFourthColumnElement(FIRST_NAME_PIM);
+  if(element.getText().contains(LAST_NAME_PIM)){
+      element.click();
+  }
+    }
+    @Step("Checking items in a form")
+    public void shouldElementForm(){
+        findEmployee();
+        nina.firstName.shouldHave(value(FIRST_NAME_PIM));
+        nina.middleName.should(visible);
+        nina.lastName.shouldHave(value(LAST_NAME_PIM));
+        nina.employeeId.shouldHave(value("0074"));
+        nina.driverNumber.should(exist);
+        nina.numberSSN.should(exist);
+        nina.personalID.should(exist);
+        nina.personalDate.should(exist);
+        nina.numberSIN.should(exist);
+        nina.genderFemale.should(selected);
+        nina.national.should(exist);
+        nina.nationalValueAmerican.shouldBe(selected);
+        nina.status.shouldHave(value("Single"));
+        nina.dataBirth.shouldHave(value("1985-08-16"));
+        nina.nickName.should(exist);
+        nina.militarySer.should(exist);
+        nina.smokerBox.should(disabled);
+        nina.buttonSave.should(exist);
+    }
 }

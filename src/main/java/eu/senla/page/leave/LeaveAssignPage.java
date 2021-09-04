@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selenide.*;
-import static eu.senla.util.IConstants.*;
+
 public class LeaveAssignPage {
     SelenideElement employeeName = $(By.id("assignleave_txtEmployee_empName"));
     SelenideElement leaveType = $(By.id("assignleave_txtLeaveType"));
@@ -16,12 +16,12 @@ public class LeaveAssignPage {
     SelenideElement commentLeave = $(By.id("assignleave_txtComment"));
     SelenideElement buttonAssign = $(By.id("assignBtn"));
     SelenideElement balanceLink = $(By.id("leaveBalance_details_link"));
-    SelenideElement assignBalance = $(By.id("assignleave_leaveBalance"));
+
 
 
     @Step("Click button assign")
     public void clickButtonAssign(){
-        buttonAssign.click();
+        buttonAssign.pressEnter();
     }
     @Step("Set value employee name")
     public void setEmployeeName(String str){
@@ -62,10 +62,6 @@ public class LeaveAssignPage {
         switchTo().window(0);
         $(By.id("confirmOkButton")).click();
     }
-    @Step("Check to negative balance")
-    public boolean negativeBalance(){
-        String st = assignBalance.getText();
-        return st.startsWith("-");
-    }
+
 
 }

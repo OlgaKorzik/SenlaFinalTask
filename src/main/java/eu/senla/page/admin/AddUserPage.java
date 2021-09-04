@@ -9,9 +9,7 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class AddUserPage {
-    ElementsCollection userForm =$$(By.id("frmSystemUser"));
     SelenideElement userRole = $(By.id("systemUser_userType"));
-    SelenideElement roleESS = $(By.xpath("//option[contains(text(),'ESS')]"));
     SelenideElement employeeName = $(By.id("systemUser_employeeName_empName"));
     SelenideElement userName = $(By.id("systemUser_userName"));
     SelenideElement status = $(By.id("systemUser_status"));

@@ -25,6 +25,7 @@ public class HeaderPage {
 
     public SelenideElement menuLeave = $(By.id("menu_leave_viewLeaveModule"));
     public SelenideElement menuLeaveAssign = $(By.id("menu_leave_assignLeave"));
+    public SelenideElement menuLeaveList = $(By.id("menu_leave_viewLeaveList"));
 
     public SelenideElement menuDashboard = $(By.id("menu_dashboard_index"));
 

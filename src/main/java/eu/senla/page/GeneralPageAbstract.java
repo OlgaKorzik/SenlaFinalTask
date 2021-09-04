@@ -27,6 +27,10 @@ public abstract class GeneralPageAbstract {
     public SelenideElement findElement(String str){
      return $(By.xpath("//a[contains(text(),\'" + str+"\')]"));
     }
+    @Step("Find item in fourth column")
+    public SelenideElement findFourthColumnElement(String str){
+        return $(By.xpath("//a[contains(text(),\'" + str+"\')]/ancestor::tr/td[4]/a"));
+    }
     @Step("Confirmation of item deletion")
     public void confirmationDelete(){
         switchTo().window(0);

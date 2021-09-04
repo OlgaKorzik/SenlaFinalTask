@@ -78,10 +78,10 @@ public class AddAndDeleteElementTest extends BaseClass{
     @Feature("Admin")
     @Severity(SeverityLevel.CRITICAL)
     @Description("Parameterized job add test")
-    @DisplayName("Check to add new job ")
+    @DisplayName("Check to add new job")
     @ParameterizedTest
     @Order(6)
-    @ValueSource(strings = {"QA engineer","Java developer","Assistant aqa"})
+    @ValueSource(strings = {"QA testJob","Java developer","Assistant aqa"})
     public void addJobTest(String title){
         pageMethods.addNewJob(title);
         pageMethods.findJob(title).should(exist);
@@ -89,10 +89,10 @@ public class AddAndDeleteElementTest extends BaseClass{
     @Feature("Admin")
     @Severity(SeverityLevel.MINOR)
     @Description("Parameterized job delete test")
-    @DisplayName("Check to delete new job ")
+    @DisplayName("Check to delete new job")
     @ParameterizedTest
     @Order(7)
-    @ValueSource(strings = {"QA engineer","Java developer","Assistant aqa"})
+    @ValueSource(strings = {"QA testJob","Java developer","Assistant aqa"})
     public void deleteJobTest(String title){
         pageMethods.deleteJobFromTable(title);
         pageMethods.findJob(title).shouldNot(exist);
@@ -125,7 +125,7 @@ public class AddAndDeleteElementTest extends BaseClass{
     @Order(10)
     public void assignLeaveTest(){
         pageMethods.setAssignLeave();
-        assertTrue(pageMethods.negativeBalance(), "Positive balance");
+        pageMethods.findAssignLeaveFromTable(EMPLOYEE_NAME).should(exist);
          }
 
 
