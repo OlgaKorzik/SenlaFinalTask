@@ -10,6 +10,7 @@ import static com.codeborne.selenide.Condition.*;
 import static eu.senla.util.IConstants.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class PresenceElementTest extends BaseClass{
     PageMethods pageMethods = new PageMethods();
     DashboardPage dashboardPage = new DashboardPage();

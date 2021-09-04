@@ -81,7 +81,7 @@ public class AddAndDeleteElementTest extends BaseClass{
     @DisplayName("Check to add new job")
     @ParameterizedTest
     @Order(6)
-    @ValueSource(strings = {"QA testJob","Java developer","Assistant aqa"})
+    @ValueSource(strings = {"QA testJob","CI developer","Assistant aqa"})
     public void addJobTest(String title){
         pageMethods.addNewJob(title);
         pageMethods.findJob(title).should(exist);
@@ -92,7 +92,7 @@ public class AddAndDeleteElementTest extends BaseClass{
     @DisplayName("Check to delete new job")
     @ParameterizedTest
     @Order(7)
-    @ValueSource(strings = {"QA testJob","Java developer","Assistant aqa"})
+    @ValueSource(strings = {"QA testJob","CI developer","Assistant aqa"})
     public void deleteJobTest(String title){
         pageMethods.deleteJobFromTable(title);
         pageMethods.findJob(title).shouldNot(exist);

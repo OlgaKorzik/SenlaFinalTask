@@ -16,11 +16,11 @@ public final class IConstants {
     //data for page add new user
     public static String EMPLOYEE_NAME = "Melan Peiris";
     public static String NONEXISTENT_EMPLOYEE_NAME = "Georgia Green";
-    public static String USERNAME = "Angelinas.Peiris";
+    public static String USERNAME = "Angelinas.PG";
     public static String USER_PASSWORD ="Ang12345";
 
     //data for page add new job
-    public static String JOB_TITLE = "AQA testJob";
+    public static String JOB_TITLE = "Same Job";
     public static String DESCRIPTION = "software testing";
     public static String LINK_SPECIFICATION="\\src\\main\\resources\\img\\maxresdefault.jpg";
     public static String NOTE = "Same text";

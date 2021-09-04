@@ -4,14 +4,12 @@ import eu.senla.page.LoginPage;
 import eu.senla.util.PageMethods;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 
 import static com.codeborne.selenide.WebDriverRunner.url;
 import static eu.senla.util.IConstants.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@RunWith(JUnitPlatform.class)
+
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class LoginTest extends BaseClass{
