@@ -21,10 +21,10 @@ public class AddJobTitlePage {
     public void setDescription(String str){
         description.setValue(str);
     }
-    @Step("Set value for specification")
-    public void setSpecification(String str){
-        specification.sendKeys(System.getProperty("user.dir")+str);
-    }
+//    @Step("Set value for specification")
+//    public void setSpecification(String str){
+//        specification.sendKeys(System.getProperty("user.dir")+str);
+//    }
     @Step("Set value for note")
     public void setNote(String str){
         note.setValue(str);

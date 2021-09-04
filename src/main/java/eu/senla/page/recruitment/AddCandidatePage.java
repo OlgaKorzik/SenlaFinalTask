@@ -31,7 +31,7 @@ public class AddCandidatePage {
         contact.setValue(CONTACT);
         jobVacancy.click();
         valueJobVacancy.click();
-        resume.sendKeys(System.getProperty("user.dir")+LINK_RESUME);
+        resume.sendKeys(LINK_RESUME);
         keyWords.setValue(KEY_WORD);
         comment.setValue(COMMENT);
         appliedDate.setValue(DATE);
