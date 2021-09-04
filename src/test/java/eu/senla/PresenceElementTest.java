@@ -23,7 +23,7 @@ public class PresenceElementTest extends BaseClass{
     @DisplayName("Check to presence of elements on the \"Quick Launch\"")
     @Test
     public void presenceQuickLaunchTest(){
-        for(int i =0; i<dashboardPage.elementsQuickLaunch.size(); i++){
+        for(int i =0; i<dashboardPage.getElementsQuickLaunch().size(); i++){
             dashboardPage.existenceElement(DATA_TABLE.get(i)).should(exist);
         }
     }
@@ -33,8 +33,8 @@ public class PresenceElementTest extends BaseClass{
     @DisplayName("Check to presence of img on the \"Quick Launch\"")
     @Test
     public void presenceImgQuickLaunchTest(){
-          for(int i =0; i<dashboardPage.elementsQuickLaunch.size(); i++){
-              dashboardPage.imgQuickLaunch.get(i).shouldBe(visible);
+          for(int i =0; i<dashboardPage.getElementsQuickLaunch().size(); i++){
+              dashboardPage.getImgQuickLaunch().get(i).shouldBe(visible);
        }
     }
     @Feature("Dashboard")
@@ -43,8 +43,8 @@ public class PresenceElementTest extends BaseClass{
     @DisplayName("Check to name table from page")
     @Test
     public void presenceTableTest(){
-        for(int i =0, j=0; i<dashboardPage.tableOfDashboard.size(); i++,j++){
-            dashboardPage.tableOfDashboard.get(i)
+        for(int i =0, j=0; i<dashboardPage.getTableOfDashboard().size(); i++,j++){
+            dashboardPage.getTableOfDashboard().get(i)
                     .shouldHave(text(TABLE_PAGE.get(j)));
         }
     }
@@ -54,7 +54,7 @@ public class PresenceElementTest extends BaseClass{
     @DisplayName("Check to presence of elements on the \"Legend\"")
     @Test
     public void presenceLegendTest(){
-        for(int i =0; i<dashboardPage.legendBox.size(); i++) {
+        for(int i =0; i<dashboardPage.getLegendBox().size(); i++) {
             dashboardPage.existenceLegendElement(TABLE_LEGEND.get(i)).should(exist);
         }}
     @Feature("Dashboard")
@@ -63,28 +63,28 @@ public class PresenceElementTest extends BaseClass{
     @DisplayName("Checking if an color box is in the legend table")
     @Test
     public void presenceImgLegendTest(){
-        for(int i =0; i<dashboardPage.legendBox.size(); i++){
-            dashboardPage.legendBox.get(i).shouldBe(visible);
+        for(int i =0; i<dashboardPage.getLegendBox().size(); i++){
+            dashboardPage.getLegendBox().get(i).shouldBe(visible);
         }
     }
     @Feature("Dashboard")
     @Severity(SeverityLevel.NORMAL)
     @Description("Presence of elements")
-    @DisplayName("Check of presence Employee Distribution by Subunit")
+    @DisplayName("Check of presence \'Employee Distribution by Subunit\'")
     @Test
     public void presenceTableEmployeeTest(){
-       dashboardPage.employeeDistribution.should(exist);
-       dashboardPage.distributionLegend.should(hidden);
+       dashboardPage.getEmployeeDistribution().should(exist);
+       dashboardPage.getDistributionLegend().should(hidden);
     }
     @Feature("Dashboard")
     @Severity(SeverityLevel.NORMAL)
     @Description("Presence of elements")
-    @DisplayName("Check of presence Pending Leave Requests")
+    @DisplayName("Check of presence \'Pending Leave Requests\'")
     @Test
     public void presencePendingLeaveTest(){
-        dashboardPage.tablePending.should(exist);
-        dashboardPage.tableTotal.should(exist);
-        dashboardPage.taskList.should(exist);
+        dashboardPage.getTablePending().should(exist);
+        dashboardPage.getTableTotal().should(exist);
+        dashboardPage.getTaskList().should(exist);
     }
 
     @Feature("PIM")

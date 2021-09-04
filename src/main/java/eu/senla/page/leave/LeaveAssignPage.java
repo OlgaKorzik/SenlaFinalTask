@@ -17,41 +17,34 @@ public class LeaveAssignPage {
     SelenideElement buttonAssign = $(By.id("assignBtn"));
     SelenideElement balanceLink = $(By.id("leaveBalance_details_link"));
 
-
-
     @Step("Click button assign")
     public void clickButtonAssign(){
         buttonAssign.pressEnter();
     }
-    @Step("Set value employee name")
-    public void setEmployeeName(String str){
-        employeeName.should(exist);
-        employeeName.setValue(str);
+    @Step("Get value employee name")
+    public SelenideElement getEmployeeName(){
+       return employeeName;
     }
     @Step("Click leave type button")
-    public void clickLeaveType(){
-        leaveType.should(exist);
-        leaveType.click();
+    public SelenideElement clickLeaveType(){
+        return leaveType;
     }
-    @Step("Set value of leave type")
-    public void setValueLeaveType(){
+    @Step("Get value of leave type")
+    public SelenideElement setValueLeaveType(){
         valueLeaveType.should(exist);
-        valueLeaveType.click();
+        return valueLeaveType;
     }
-    @Step("Set from data")
-    public void setFromData(String str){
-        fromData.should(exist);
-        fromData.setValue(str);
+    @Step("Get from data")
+    public SelenideElement getFromData(){
+        return fromData;
     }
-    @Step("Set to data")
-    public void setToData(String str){
-        toData.should(exist);
-        toData.setValue(str);
+    @Step("Get to data")
+    public SelenideElement getToData(){
+        return toData;
     }
-    @Step("Set comment")
-    public void setCommentLeave(String str){
-        commentLeave.should(exist);
-        commentLeave.setValue(str);
+    @Step("Get comment")
+    public SelenideElement getCommentLeave(){
+       return commentLeave;
     }
     @Step("Get information from details assign leave")
     public String getDetailsLink(){

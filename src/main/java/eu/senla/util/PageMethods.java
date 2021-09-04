@@ -1,6 +1,7 @@
 package eu.senla.util;
 
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import eu.senla.page.HeaderPage;
 import eu.senla.page.LoginPage;
@@ -33,7 +34,7 @@ public class PageMethods {
     LeaveListPage leaveListPage = new LeaveListPage();
     EmpLoyeeListPage empLoyeeListPage = new EmpLoyeeListPage();
     NinaPatelDetailsPage nina = new NinaPatelDetailsPage();
-
+/*----------step from login page----------*/
     @Step("login account administrator")
     public void loginAdmin (){
         loginPage.setLogin(LOGIN_ADMIN);
@@ -56,16 +57,19 @@ public class PageMethods {
         headerPage.menuUserManager.click();
         headerPage.menuUser.click();
     }
+    /*-------step from Admin pages-------*/
     @Step("Add new user")
     public void addUser(String str){
         openUsersPage();
         adminUsersPage.clickAdd();
-        addUserPage.setUserRole();
-        addUserPage.setEmployeeName(str);
-        addUserPage.setUserName(USERNAME);
-        addUserPage.setStatus();
-        addUserPage.setPassword(USER_PASSWORD);
-        addUserPage.setConfirmPassword(USER_PASSWORD);
+        addUserPage.getUserRole().should(exist);
+        addUserPage.getUserRole().shouldBe(Condition.text("ESS"));
+        addUserPage.getEmployeeName().should(exist).setValue(str);
+        addUserPage.getUserName().should(exist).setValue(USERNAME);
+        addUserPage.getStatus().should(exist);
+        addUserPage.getStatus().shouldBe(Condition.text("Enabled"));
+        addUserPage.getPassword().should(exist).setValue(USER_PASSWORD);
+        addUserPage.getConfirmPassword().should(exist).setValue(USER_PASSWORD);
         addUserPage.clickBtnSave();
     }
     @Step("Get error message")
@@ -118,6 +122,7 @@ public class PageMethods {
         jobTitlesPage.clickDelete();
         jobTitlesPage.confirmationDelete();
     }
+    /*------step from Recruitment pages--------*/
     @Step("Open candidates page")
     public void openCandidatesPage(){
         headerPage.menuRecruitment.click();
@@ -143,6 +148,7 @@ public class PageMethods {
         candidatesPage.clickDelete();
         candidatesPage.confirmationDelete();
     }
+    /*-----------step from Leave pages----------*/
     @Step("Open page assign leave")
     public void openAssignLeave(){
         headerPage.menuLeave.click();
@@ -151,12 +157,12 @@ public class PageMethods {
     @Step("Set assign leave")
     public void setAssignLeave(){
         openAssignLeave();
-     leaveAssignPage.setEmployeeName(EMPLOYEE_NAME);
-     leaveAssignPage.clickLeaveType();
-     leaveAssignPage.setValueLeaveType();
-     leaveAssignPage.setFromData(FROM_DATA);
-     leaveAssignPage.setToData(TO_DATA);
-     leaveAssignPage.setCommentLeave(COMMENT);
+     leaveAssignPage.getEmployeeName().should(exist).setValue(EMPLOYEE_NAME);
+     leaveAssignPage.clickLeaveType().should(exist).click();
+     leaveAssignPage.setValueLeaveType().should(exist).click();
+     leaveAssignPage.getFromData().should(exist).setValue(FROM_DATA);
+     leaveAssignPage.getToData().should(exist).setValue(TO_DATA);
+     leaveAssignPage.getCommentLeave().should(exist).setValue(COMMENT);
      if(leaveAssignPage.getDetailsLink().contains("Balance not sufficient")){
          leaveAssignPage.clickButtonAssign();
          leaveAssignPage.confirmationAssignLeave();
@@ -169,6 +175,7 @@ public class PageMethods {
         leaveListPage.clickButton();
         return leaveListPage.findElement(str);
     }
+    /*------------step from PIM pages----------*/
     @Step("Open Employee List page and selection of employees")
     public void openEmployeeList(){
         headerPage.menuPIM.click();
