@@ -24,6 +24,7 @@
         <allure-junit5.version>2.14.0</allure-junit5.version>
         <allure-selenide.version>2.14.0</allure-selenide.version>
         <allure-maven.version>2.10.0</allure-maven.version>
+        <allure-junit-platform.version>2.14.0</allure-junit-platform.version>
     </properties>
     <build>
         <plugins>
@@ -32,7 +33,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
-                    <useSystemClassLoader>false</useSystemClassLoader>
+                    <testFailureIgnore>false</testFailureIgnore>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
@@ -66,6 +67,11 @@
                 <version>3.7.0</version>
 
             </plugin>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure-maven.version}</version>
+                </plugin>
 
         </plugins>
     </build>
@@ -118,6 +124,11 @@
         <groupId>io.qameta.allure</groupId>
         <artifactId>allure-selenide</artifactId>
         <version>${allure-selenide.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-junit-platform</artifactId>
+        <version>${allure-junit-platform.version}</version>
     </dependency>
 
 
