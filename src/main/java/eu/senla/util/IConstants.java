@@ -16,7 +16,7 @@ public final class IConstants {
     //data for page add new user
     public static String EMPLOYEE_NAME = "Melan Peiris";
     public static String NONEXISTENT_EMPLOYEE_NAME = "Georgia Green";
-    public static String USERNAME = "Angel.MPG";
+    public static String USERNAME = "Angel.MP";
     public static String USER_PASSWORD ="Ang12345";
 
     //data for page add new job
