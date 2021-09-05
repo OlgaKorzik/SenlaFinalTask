@@ -3,10 +3,14 @@ package eu.senla.page.recruitment;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+
+import java.util.Properties;
+
 import static com.codeborne.selenide.Selenide.*;
 import static eu.senla.util.IConstants.*;
 
 public class AddCandidatePage {
+    Properties property = new Properties();
     SelenideElement firstName = $(By.id("addCandidate_firstName"));
     SelenideElement middleName = $(By.id("addCandidate_middleName"));
     SelenideElement lastName = $(By.id("addCandidate_lastName"));
@@ -31,7 +35,7 @@ public class AddCandidatePage {
         contact.setValue(CONTACT);
         jobVacancy.click();
         valueJobVacancy.click();
-        resume.sendKeys(LINK_RESUME);
+        resume.sendKeys(property.getProperty("db.host")+LINK_RESUME);
         keyWords.setValue(KEY_WORD);
         comment.setValue(COMMENT);
         appliedDate.setValue(DATE);
