@@ -22,7 +22,6 @@ public final class IConstants {
     //data for page add new job
     public static String JOB_TITLE = "Same Job";
     public static String DESCRIPTION = "software testing";
-    public static String LINK_SPECIFICATION=".\\src\\main\\resources\\img\\maxresdefault.jpg";
     public static String NOTE = "Same text";
 
     //data for page add new candidate
@@ -31,7 +30,6 @@ public final class IConstants {
     public static String LAST_NAME = "Smith";
     public static String EMAIL = "123654@yandex.ru";
     public static String CONTACT = "+123-45-6789123";
-    public static String LINK_RESUME =".\\src\\main\\resources\\file\\file.txt";
     public static String KEY_WORD = "same text";
     public static String COMMENT = "same text";
     public static String DATE = "2021-08-29";
