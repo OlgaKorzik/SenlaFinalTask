@@ -99,7 +99,7 @@ public class PageMethods {
         jobTitlesPage.clickAdd();
         addJobTitlePage.setValueJobTitle(JOB_TITLE);
         addJobTitlePage.setDescription(DESCRIPTION);
-        addJobTitlePage.setSpecification(LINK_SPECIFICATION);
+        //addJobTitlePage.setSpecification(LINK_SPECIFICATION);
         addJobTitlePage.setNote(NOTE);
         addJobTitlePage.clickSave();
     }
